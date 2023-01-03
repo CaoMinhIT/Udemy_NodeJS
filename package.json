@@ -1,0 +1,27 @@
+{
+  "name": "full-backend-zero",
+  "version": "1.0.0",
+  "description": "Cao Minh Learn back-end",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaoMinhIT/Udemy_NodeJS.git"
+  },
+  "keywords": [
+    "nodejs",
+    "back-end"
+  ],
+  "author": "ZipZip",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CaoMinhIT/Udemy_NodeJS/issues"
+  },
+  "homepage": "https://github.com/CaoMinhIT/Udemy_NodeJS#readme",
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}
