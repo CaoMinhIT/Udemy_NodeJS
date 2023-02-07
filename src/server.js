@@ -1,7 +1,7 @@
 require('dotenv').config();
 const hostname = process.env.HOST_NAME || 8888;
 const path = require('path');
-const mysql = require('mysql2')
+const connection = require ('./config/database')
 const express = require('express') //import express
 const app = express() // tạo express application
 const port = process.env.PORT || 8888;
@@ -10,17 +10,9 @@ const port = process.env.PORT || 8888;
 const configViewEngine = require('./config/viewEngine.js');
 const webRoutes = require('./routes/web')
 
-// create the connection to database
-const connection = mysql.createConnection({
-  host: 'localhost',
-  port: 3307, //default: 3306
-  user: 'root', // default: empty
-  password: '123456',
-  database: 'hoidanit'
-});
 
 // test connection
-connection.execute(
+connection.query(
     'SELECT * FROM Users u',
     function(err, results, fields) {
         console.log(">>>results",results); 
