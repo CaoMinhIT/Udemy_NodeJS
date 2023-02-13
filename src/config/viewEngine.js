@@ -9,6 +9,8 @@ const configViewEngine = (app)=>{
 
     // config stactic file
     app.use(express.static(path.join('./src', 'public')))
+
+    // console.log(">>>check ___dirname: ", (path.join('./src', 'public')))
 }
 
 module.exports = configViewEngine;

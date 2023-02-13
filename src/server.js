@@ -11,13 +11,6 @@ const configViewEngine = require('./config/viewEngine.js');
 const webRoutes = require('./routes/web')
 
 
-// test connection
-// connection.query(
-//     'SELECT * FROM Users u',
-//     function(err, results, fields) {
-//         console.log(">>>results",results); 
-// }
-// );
 // to server
 configViewEngine(app);
 app.use('/',webRoutes);

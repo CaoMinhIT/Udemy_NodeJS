@@ -2,6 +2,10 @@ const connection = require('../config/database')
 
 
 const getHomepage = (req,res) =>{
+    return res.render('home.ejs');
+}
+
+const getData = (req, res) =>{
     let users = [];
     
     connection.query(
@@ -14,13 +18,15 @@ const getHomepage = (req,res) =>{
                 res.send(JSON.stringify(users));
         }
     );
-
 }
-
 const getABC = (req,res) =>{
     res.render('sample.ejs');
 } 
+
+
+
 module.exports = {
     getHomepage,
-    getABC
+    getABC,
+    getData
 }
