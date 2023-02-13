@@ -1,5 +1,20 @@
+const connection = require('../config/database')
+
+
 const getHomepage = (req,res) =>{
-    res.send('Change your link to see new thing')
+    let users = [];
+    
+    connection.query(
+        'SELECT * FROM Users u',
+            function(err, results, fields) {
+                users = results;
+                console.log(">>>results", results); 
+
+                // console.log (">> check users", users)
+                res.send(JSON.stringify(users));
+        }
+    );
+
 }
 
 const getABC = (req,res) =>{

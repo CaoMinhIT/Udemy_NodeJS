@@ -3,7 +3,7 @@ const hostname = process.env.HOST_NAME || 8888;
 const path = require('path');
 const connection = require ('./config/database')
 const express = require('express') //import express
-const app = express() // tạo express application
+const app = express() // tạo express application 
 const port = process.env.PORT || 8888;
 
 // from file
@@ -12,13 +12,12 @@ const webRoutes = require('./routes/web')
 
 
 // test connection
-connection.query(
-    'SELECT * FROM Users u',
-    function(err, results, fields) {
-        console.log(">>>results",results); 
-    //   console.log(">>> fields",fields); //type you define 
-}
-);
+// connection.query(
+//     'SELECT * FROM Users u',
+//     function(err, results, fields) {
+//         console.log(">>>results",results); 
+// }
+// );
 // to server
 configViewEngine(app);
 app.use('/',webRoutes);
@@ -26,5 +25,5 @@ app.use('/',webRoutes);
 //run server trên port đã khởi tạo trước đấy
 //nạp các thông tin khai báo ở trên rồi chạy (ví dụ như nạp routes)
 app.listen(port,hostname, () => {
-    console.log(`Example app listening on port http://localhost:3000`)
+    console.log(`Example app listening on port http://${hostname}:${port}/`)
 })
