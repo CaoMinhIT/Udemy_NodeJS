@@ -20,13 +20,18 @@ const getData = (req, res) =>{
     );
 }
 const getABC = (req,res) =>{
+
     res.render('sample.ejs');
 } 
 
-
+const postCreateUser = (req,res) => {
+    console.log(">>> req.body", req.body);
+    res.send("Create a new user");
+}
 
 module.exports = {
     getHomepage,
     getABC,
-    getData
+    getData,
+    postCreateUser
 }

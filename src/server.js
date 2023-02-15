@@ -10,6 +10,9 @@ const port = process.env.PORT || 8888;
 const configViewEngine = require('./config/viewEngine.js');
 const webRoutes = require('./routes/web')
 
+// config request.body
+app.use(express.json()) // for json
+app.use(express.urlencoded({ extended: true })) // for form data
 
 // to server
 configViewEngine(app);
