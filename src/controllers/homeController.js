@@ -23,7 +23,7 @@ const getABC = (req,res) =>{
     res.render('sample.ejs');
 } 
 
-const postCreateUser = (req,res) => {
+const postCreateUser = async(req,res) => {
     let email = req.body.email; 
     let name = req.body.name;
     let city = req.body.city;
@@ -42,8 +42,16 @@ const postCreateUser = (req,res) => {
             res.send("Create a new user successed");
         }
     );
-}
+    // Insert with async await
+    let [results, fields]  = await connection.query(
+    `INSERT INTO Users (email, name, city) VALUES (?,?, ?)`, [email , name, city],
+    );
+    console.log(">>> check add data: ",results );
+    // Select with async await
+    // const [results, fields] = await connection.query('select * from Users u');
+    // console.log(">>> result: ", results)
 
+}
 const getCreatePage = (req,res) =>{
     res.render('create.ejs');
 }
