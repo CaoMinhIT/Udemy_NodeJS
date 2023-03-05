@@ -1,0 +1,39 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Delete User</title>
+</head>
+<body>
+    <div class="topnav">
+        <a  href="/">Home</a>
+        <a href="/create">Create</a>
+        <a href="/Data">Data</a>
+        <a href="/update" class="active">Update</a>
+    </div>
+    <%= JSON.stringify(userEdit) %>
+    <div class="from-add-new">
+        <!-- dữ nguyên create-user vì đây là trang dẫn tới POST -->
+        <form action="/delete-user" method="POST">
+            <fieldset>
+                <legend>Delete user</legend>
+                <div class="input-group d-none" >
+                    <label >Id: </label>
+                    <input type="text" name ="userId" value="<%= userEdit.id %>">
+                </div>
+
+                <div class="input-group">
+                    <label >Email </label>
+                    <input type="text" name ="email" value="<%= userEdit.email %>">
+                </div>
+
+                    <button>Confirm</button>
+   
+            </fieldset>
+        </form>
+    <div>
+</body>
+</html>

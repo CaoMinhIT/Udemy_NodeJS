@@ -5,32 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
-    <title>Create User</title>
+    <title>Update User</title>
 </head>
 <body>
     <div class="topnav">
         <a  href="/">Home</a>
-        <a href="/create" class="active">Create</a>
+        <a href="/create">Create</a>
         <a href="/Data">Data</a>
-        <a href="/update" >Update</a>
+        <a href="/update" class="active">Update</a>
     </div>
-
+    <%= JSON.stringify(userEdit) %>
     <div class="from-add-new">
         <!-- dữ nguyên create-user vì đây là trang dẫn tới POST -->
-        <form action="/create-user" method="POST">
+        <form action="/update-user" method="POST">
             <fieldset>
-                <legend>Add new user</legend>
+                <legend>Update new user</legend>
+                <div class="input-group d-none" >
+                    <label >Id: </label>
+                    <input type="text" name ="userId" value="<%= userEdit.id %>">
+                </div>
+
                 <div class="input-group">
-                    <label >Email</label>
-                    <input type="text" name ="email">
+                    <label >Email </label>
+                    <input type="text" name ="email" value="<%= userEdit.email %>">
                 </div>
                 <div class="input-group">
                     <label >Name</label>
-                    <input type="text" name ="name">
+                    <input type="text" name ="name" value="<%= userEdit.name %>">
                 </div>
                 <div class="input-group">
                     <label >City</label>
-                    <input type="text" name ="city">
+                    <input type="text" name ="city" value="<%= userEdit.city %>">
                 </div>
                 <button>Save</button>
             </fieldset>
