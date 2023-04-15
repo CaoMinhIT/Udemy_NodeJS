@@ -18,8 +18,14 @@ app.use(express.urlencoded({ extended: true })) // for form data
 configViewEngine(app);
 app.use('/',webRoutes);
 
-//run server trên port đã khởi tạo trước đấy
-//nạp các thông tin khai báo ở trên rồi chạy (ví dụ như nạp routes)
-app.listen(port,hostname, () => {
-    console.log(`Example app listening on port http://${hostname}:${port}/`)
-})
+(async()=>{
+    try {
+        await connection();
+        app.listen(port,hostname, () => {
+            console.log(`Example app listening on port http://${hostname}:${port}/`)
+        })
+    } catch (err) {
+        
+    }
+})()
+
