@@ -9,6 +9,7 @@ const port = process.env.PORT || 8888;
 // from file
 const configViewEngine = require('./config/viewEngine.js');
 const webRoutes = require('./routes/web')
+const routerAPI = require('./routes/api')
 
 // config request.body
 app.use(express.json()) // for json
@@ -16,7 +17,10 @@ app.use(express.urlencoded({ extended: true })) // for form data
 
 // to server
 configViewEngine(app);
-app.use('/',webRoutes);
+
+app.use('/', webRoutes);
+app.use('/v1/api', routerAPI);
+
 
 (async()=>{
     try {
