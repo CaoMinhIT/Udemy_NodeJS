@@ -20,7 +20,6 @@ const postCreateUser = async(req,res) => {
         name: name,
         city: city,
     })
-
     res.status(200).json({
         errCode: 0,
         data: newUser,
@@ -33,19 +32,28 @@ const putUpdateUser = async(req,res) => {
     let userID = req.body.userId;
 
     let updateUser = await userModel.updateOne({_id: userID},{email: email, name: name, city: city})
-    // console.log(userID);
     if(userID === undefined){
         res.status(500).send('Không tìm thấy người dùng');
-        // console.log("Không nhận được dữ liệu");
     }else{
         res.status(200).json({
             errCode: 0,
             data: updateUser,
         }) 
     }
+}
+const deleteUser = async (req,res) => {
+    let userID = req.body.userId;
+
+    let deleteUser = await userModel.deleteOne({
+        _id: userID
+    });
+    res.status(200).json({
+        errCode: 0,
+        data: deleteUser,
+    })
 
 }
 module.exports={
-    getUsersAPI, postCreateUser, putUpdateUser
+    getUsersAPI, postCreateUser, putUpdateUser,deleteUser
 
 }
